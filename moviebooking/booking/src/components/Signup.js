@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import "./Signup.css"
 
 
@@ -89,6 +90,8 @@ function SignupPage() {
         console.log(formData)
         event.preventDefault(); // Prevent default form submission behavior
         validatePassword();
+        Navigate('/RegConfirmation');
+
     }
 
     return (
@@ -113,12 +116,12 @@ function SignupPage() {
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password<sup> *required</sup></label>
-                    <input type="text" class="form-control" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handlepw}/>
+                    <input type="password" class="form-control" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handlepw}/>
                     <small class="form-text text-muted">Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.</small>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Confirm Password<sup> *required</sup></label>
-                    <input type="text" class="form-control" id="confirm" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handlecp}/>
+                    <input type="password" class="form-control" id="confirm" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handlecp}/>
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Address <sup> (optional)</sup></label>
@@ -131,7 +134,7 @@ function SignupPage() {
                 </div>
                 <div class="mb-3">
                     <label for="paymentcard" class="form-label">Payment Card <sup> (optional)</sup></label>
-                    <input type="text" class="form-control" id="paymentcard" name="paymentcard" onChange={handlepc}/>
+                    <input type="password" class="form-control" id="paymentcard" name="paymentcard" onChange={handlepc}/>
                 </div>
                 <div class="mb-3">
                     <label for="expiration_date" class="form-label">Expiration Date <sup> (optional)</sup></label>
